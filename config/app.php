@@ -168,15 +168,16 @@ return [
          * Package Service Providers...
          */
         Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
+        Prettus\Repository\Providers\RepositoryServiceProvider::class,
 
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        Inventory\Providers\AppServiceProvider::class,
+        Inventory\Providers\AuthServiceProvider::class,
+        // Inventory\Providers\BroadcastServiceProvider::class,
+        Inventory\Providers\EventServiceProvider::class,
+        Inventory\Providers\RouteServiceProvider::class,
 
     ],
 

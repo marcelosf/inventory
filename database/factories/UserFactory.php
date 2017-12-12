@@ -13,10 +13,11 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(Inventory\User::class, function (Faker $faker) {
+$factory->define(Inventory\Entities\User::class, function (Faker $faker) {
     static $password;
 
     return [
+        'code' => $faker->randomNumber(7),
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
         'password' => $password ?: $password = bcrypt('secret'),

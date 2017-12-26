@@ -3,6 +3,7 @@
 namespace Inventory\Http\Controllers\Api\Auth;
 
 use Illuminate\Http\Request;
+use Inventory\Exceptions\LoginException;
 use Inventory\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,7 +13,7 @@ class AuthController extends Controller
     public function __construct()
     {
 
-        $this->middleware('auth:api', ['except' => ['login']]);
+        $this->middleware('auth:api', ['except' => ['login', 'account']]);
 
     }
 
@@ -27,7 +28,20 @@ class AuthController extends Controller
 
         }
 
-        return response()->json(['error' => 'Unauthorized'], 401);
+        throw new LoginException;
+
+    }
+
+    public function account(Request $request)
+    {
+
+        $account = [
+
+            'page' => 'account_page_redirect'
+
+        ];
+
+        return compact('account');
 
     }
 
